@@ -1,0 +1,77 @@
+{
+  "dataset": "UCI Dry Bean Dataset",
+  "n_features": 16,
+  "n_instances": 13611,
+  "feature_names": [
+    "Area",
+    "Perimeter",
+    "MajorAxisLength",
+    "MinorAxisLength",
+    "AspectRation",
+    "Eccentricity",
+    "ConvexArea",
+    "EquivDiameter",
+    "Extent",
+    "Solidity",
+    "roundness",
+    "Compactness",
+    "ShapeFactor1",
+    "ShapeFactor2",
+    "ShapeFactor3",
+    "ShapeFactor4"
+  ],
+  "target_column": "Class",
+  "class_names": [
+    "BARBUNYA",
+    "BOMBAY",
+    "CALI",
+    "DERMASON",
+    "HOROZ",
+    "SEKER",
+    "SIRA"
+  ],
+  "test_size": 0.2,
+  "random_state": 42,
+  "metrics": {
+    "Logistic Regression": {
+      "Accuracy": 0.9214,
+      "AUC": 0.9934,
+      "Precision": 0.9222,
+      "Recall": 0.9214,
+      "F1": 0.9216,
+      "MCC": 0.905
+    },
+    "Decision Tree": {
+      "Accuracy": 0.9115,
+      "AUC": 0.9649,
+      "Precision": 0.9114,
+      "Recall": 0.9115,
+      "F1": 0.9113,
+      "MCC": 0.893
+    },
+    "KNN": {
+      "Accuracy": 0.9137,
+      "AUC": 0.9837,
+      "Precision": 0.9144,
+      "Recall": 0.9137,
+      "F1": 0.9139,
+      "MCC": 0.8956
+    },
+    "Naive Bayes": {
+      "Accuracy": 0.8979,
+      "AUC": 0.9902,
+      "Precision": 0.9007,
+      "Recall": 0.8979,
+      "F1": 0.8981,
+      "MCC": 0.8773
+    },
+    "Support Vector Machine": {
+      "Accuracy": 0.9221,
+      "AUC": 0.9937,
+      "Precision": 0.9224,
+      "Recall": 0.9221,
+      "F1": 0.9222,
+      "MCC": 0.9059
+    }
+  }
+}
