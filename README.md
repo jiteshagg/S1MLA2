@@ -60,7 +60,9 @@ ml_assignment2/
 
 ## d. Models used
 
-All five models were trained on the **same** Dry Bean training split and evaluated on the **same** held-out test set.
+All five models were trained on the **same** Dry Bean training split. The comparison table below is the **original experiment report** on the held-out test split produced by `train_models.py`.
+
+The Streamlit app does **not** only display this table: it **recomputes** Accuracy, AUC, Precision, Recall, F1, MCC (and the confusion matrix) live on whatever CSV you upload. That CSV **must include the `Class` target column**. Saved `.joblib` models are loaded for `predict` / `predict_proba` only — **no retraining** on upload.
 
 ### Comparison table
 
@@ -92,11 +94,11 @@ All five models were trained on the **same** Dry Bean training split and evaluat
 **Live App:** https://s1mla2-wwgpemq3rrfc8gdmcvjra8.streamlit.app/
 
 The app:
-- Uploads a test CSV (or uses bundled `test_data.csv`)
+- **Uploads a test CSV** that must include all features **and** the `Class` target (or uses bundled `test_data.csv`)
 - Lets you select one of **5** saved classifiers
-- Displays **Accuracy, AUC, Precision, Recall, F1, MCC**
-- Shows a **confusion matrix** and **classification report**
-- **Does not retrain** — loads `.joblib` models from `model/`
+- **Computes live** Accuracy, AUC, Precision, Recall, F1, MCC on the loaded rows via `predict` / `predict_proba`
+- Shows a **confusion matrix** and **classification report** for that same CSV
+- **Does not retrain** — loads `.joblib` models from `model/` (sidebar “README reference” metrics are optional and separate)
 
 ### App screenshots / evaluation visuals
 
