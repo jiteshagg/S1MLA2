@@ -5,31 +5,6 @@
 
 ---
 
-## Streamlit Application
-
-**Live App:** https://s1mla2-wwgpemq3rrfc8gdmcvjra8.streamlit.app/
-
-**GitHub:** https://github.com/jiteshagg/S1MLA2
-
-The app:
-- Uploads a test CSV (or uses bundled `test_data.csv`)
-- Lets you select one of **5** saved classifiers
-- Displays **Accuracy, AUC, Precision, Recall, F1, MCC**
-- Shows a **confusion matrix** and **classification report**
-- **Does not retrain** — loads `.joblib` models from `model/`
-
-### App screenshots / evaluation visuals
-
-| View | Preview |
-|------|---------|
-| Metrics comparison (all 5 models) | ![Metrics](screenshots/01_metrics_comparison.png) |
-| Confusion matrix (SVM on test set) | ![CM](screenshots/02_confusion_matrix_svm.png) |
-| App feature checklist | ![Features](screenshots/03_app_features_overview.png) |
-
-> Tip for evaluators: open the live app → click **Use bundled test_data.csv** → choose **Support Vector Machine**.
-
----
-
 ## a. Problem statement
 
 Build and compare **five supervised classification models** on a public multi-class dataset, report standard evaluation metrics, package the trained models in a **Streamlit** web app (upload test CSV → select model → metrics + confusion matrix), and deploy the app on **Streamlit Community Cloud**. Models are trained once offline; the app **loads saved models** and evaluates on uploaded test data **without retraining**.
@@ -57,7 +32,7 @@ URL: https://archive.ics.uci.edu/static/public/602/dry+bean+dataset.zip
 File used: DryBeanDataset/Dry_Bean_Dataset.xlsx
 ```
 
-The training script downloads/extracts under `data/raw/` (or uses the already extracted Excel) via `train_models.py`. Held-out rows used for the Streamlit demo are saved as `test_data.csv` in this repository.
+The training script uses the UCI Dry Bean Excel under `data/raw/` via `train_models.py`. Held-out rows used for the Streamlit demo are saved as `test_data.csv` in this repository.
 
 ---
 
@@ -83,9 +58,11 @@ ml_assignment2/
 
 ---
 
-## d. Models used & comparison table
+## d. Models used
 
 All five models were trained on the **same** Dry Bean training split and evaluated on the **same** held-out test set.
+
+### Comparison table
 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 |---|---:|---:|---:|---:|---:|---:|
@@ -106,7 +83,30 @@ All five models were trained on the **same** Dry Bean training split and evaluat
 | KNN | Competitive (~91.4% accuracy). Benefits from StandardScaler; sensitive to local neighbourhood in feature space. |
 | Naive Bayes | Lowest accuracy (~89.8%) among the five, but still high AUC (~0.990). Gaussian independence assumption is imperfect for correlated shape features. |
 | Support Vector Machine | **Best overall** on this split: highest Accuracy (0.9221), AUC (0.9937), F1 (0.9222), and MCC (0.9059). RBF kernel captures non-linear class boundaries. |
-| **Overall winner?** | **Support Vector Machine (RBF)**, with Logistic Regression a very close second. |
+| **Overall, Winner for your dataset?** | **Support Vector Machine (RBF)**, with Logistic Regression a very close second. |
+
+---
+
+## Streamlit Application
+
+**Live App:** https://s1mla2-wwgpemq3rrfc8gdmcvjra8.streamlit.app/
+
+The app:
+- Uploads a test CSV (or uses bundled `test_data.csv`)
+- Lets you select one of **5** saved classifiers
+- Displays **Accuracy, AUC, Precision, Recall, F1, MCC**
+- Shows a **confusion matrix** and **classification report**
+- **Does not retrain** — loads `.joblib` models from `model/`
+
+### App screenshots / evaluation visuals
+
+| View | Preview |
+|------|---------|
+| Metrics comparison (all 5 models) | ![Metrics](screenshots/01_metrics_comparison.png) |
+| Confusion matrix (SVM on test set) | ![CM](screenshots/02_confusion_matrix_svm.png) |
+| App feature checklist | ![Features](screenshots/03_app_features_overview.png) |
+
+> Tip for evaluators: open the live app → click **Use bundled test_data.csv** → choose **Support Vector Machine**.
 
 ---
 
